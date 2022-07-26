@@ -1,0 +1,8 @@
+{
+  "name": "evm-multicall-helper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fai516/evm-multicall-helper.git",
+  "author": "fai516 <yfsiuv@gmail.com>",
+  "license": "MIT"
+}
