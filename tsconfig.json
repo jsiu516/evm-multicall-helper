@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "target": "es2021",
+    "lib": ["dom", "es2021"],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@web3": ["./src/helpers/web3"],
+      "@util/*": ["./src/utils/*"],
+      "@types": ["./src/types/interface"]
+    }
+  },
+  "include": ["module.d.ts", "src/**/*", "test/**/*", "env"],
+  "exclude": ["node_modules"]
+}
