@@ -9,3 +9,12 @@ export const getStandarizedOption = (opts: {
     network,
   };
 };
+
+export const getNodeUrlStr = (chain: string, network: string): string =>
+  `${chain.toUpperCase()}_${network.toUpperCase()}_NODE_URL`;
+
+export const getMulticallContractAddressStr = (
+  chain: string,
+  network: string
+): string =>
+  `${chain.toUpperCase()}_${network.toUpperCase()}_MULTICALL_ADDRESS`;

@@ -6,7 +6,6 @@
   "author": "fai516 <yfsiuv@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@makerdao/multicall": "^0.12.0",
     "commander": "^9.4.0",
     "dotenv": "^16.0.1",
     "lodash": "^4.17.21",

@@ -1,9 +1,9 @@
 import Web3 from "web3";
 import { isNil } from "lodash";
+import { getNodeUrlStr } from "@util/parsing";
 
 export const getWeb3 = (chain: string, network: string): Web3 => {
-  const envStr = `${chain.toUpperCase()}_${network.toUpperCase()}_NODE_URL`;
-  const nodeUrl = process.env[envStr];
+  const nodeUrl = process.env[getNodeUrlStr(chain, network)];
   if (isNil(nodeUrl)) {
     throw new Error("nodeUrl is undefined. Check .env or input.");
   }

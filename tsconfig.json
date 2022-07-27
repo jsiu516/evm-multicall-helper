@@ -17,10 +17,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@web3": ["./src/helpers/web3"],
+      "@helper/*": ["./src/helpers/*"],
       "@util/*": ["./src/utils/*"],
       "@types": ["./src/types/interface"],
-      "@logic": ["./src/logic"]
+      "@logic": ["./src/logic"],
+      "@abi": ["./src/abi"]
     }
   },
   "include": ["module.d.ts", "src/**/*", "test/**/*", "env"],

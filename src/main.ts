@@ -3,7 +3,7 @@ import { Command, Option } from "commander";
 import { getStandarizedOption } from "@util/parsing";
 import { registerCommand } from "@util/commander";
 import { ICommandProps } from "@types";
-import {tokenAbiUrls} from "@logic"
+import { tokenURIs } from "@logic";
 
 // import { getWeb3 } from "@/src/utils/web3";
 
@@ -36,7 +36,7 @@ const commandPropsSet: ICommandProps[] = [
   //   },
   // },
   {
-    name: "tokenAbiUrls",
+    name: "tokenUrls",
     desc: "Query the metadata url given contract address and token Id set",
     args: [
       ["<contractAddress>", "Contract Address"],
@@ -45,7 +45,7 @@ const commandPropsSet: ICommandProps[] = [
     opts: chainOpts,
     action: (...args) => {
       const opt = getStandarizedOption(args[2]);
-      tokenAbiUrls(args[0], args[1], opt);
+      tokenURIs(args[0], args[1], opt);
       // console.log(str);
       // const standardOpts = getStandarizedOption(options);
       // console.log(standardOpts);

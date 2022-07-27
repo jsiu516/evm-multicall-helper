@@ -5,5 +5,6 @@ export interface ICommandProps {
   desc: string;
   args: string[][];
   opts: Option[];
-  action: (...args: any[]) => any;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  action: (...args: any[]) => void;
 }

@@ -1,1 +1,1 @@
-export { tokenAbiUrls } from "./tokenAbiUrls";
+export { tokenURIs } from "./tokenAbiUrls";
