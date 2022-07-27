@@ -8,7 +8,7 @@ export const registerCommand = (program: Command, props: ICommandProps) => {
     command.argument(arg[0], arg[1]);
   });
   opts.forEach((opt) => {
-    command.option(opt[0], opt[1]);
+    command.addOption(opt);
   });
   command.action(action);
 };

@@ -19,7 +19,8 @@
       "@/*": ["./*"],
       "@web3": ["./src/helpers/web3"],
       "@util/*": ["./src/utils/*"],
-      "@types": ["./src/types/interface"]
+      "@types": ["./src/types/interface"],
+      "@logic": ["./src/logic"]
     }
   },
   "include": ["module.d.ts", "src/**/*", "test/**/*", "env"],

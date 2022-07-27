@@ -1,7 +1,9 @@
+import { Option } from "commander";
+
 export interface ICommandProps {
   name: string;
   desc: string;
   args: string[][];
-  opts: string[][];
-  action: (str: string, opt: any) => any;
+  opts: Option[];
+  action: (...args: any[]) => any;
 }
