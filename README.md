@@ -23,9 +23,9 @@ This script also support Polygon and Cronos.\
 You can specify `-c` for chain and `-n` for network\
 chain: `ethereum`, `polygon`, `cronos` (default: `ethereum`)\
 network: `mainnet`, `testnet` (default: `mainnet`)\
-Example: `yarn main tokenUrls 0x7019d273a7384c75f9598f1a5494f106a76e4f23 5-10 -c cronos -n testnet`\
-Explain: You are getting the tokenUrl of `#5-#10` from the contract `0x7019d273a7384c75f9598f1a5494f106a76e4f23` in `Cronos Testnet`.\
-ref: https://testnet.cronoscan.com/address/0x7019d273a7384c75f9598f1a5494f106a76e4f23
+Example: `yarn main tokenUrls 0x6695326bE9196370eC9A13AC48Bcc89fAC102078 5-10 -c polygon -n testnet`\
+Explain: You are getting the tokenUrl of `#5-#10` from the contract `0x6695326bE9196370eC9A13AC48Bcc89fAC102078` in `Mumbai (Polygon Testnet)`.\
+ref: https://mumbai.polygonscan.com/address/0x6695326bE9196370eC9A13AC48Bcc89fAC102078
 
 # For help
 run `yarn main --help`
