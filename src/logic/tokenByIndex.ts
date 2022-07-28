@@ -2,14 +2,14 @@ import { ERC_721_ENUMERABLE } from "@abi";
 import { getMulticallHelper } from "@helper/MulticallHelper";
 import { parseNumericalStr, outputCsvFile } from "@util/parsing";
 
-export const tokenURIs = async (
+export const tokenByIndex = async (
   contractAddress: string,
   rawTokenIds: string,
   opt: Record<string, string>
 ) => {
   const { chain, network } = opt;
   console.log(
-    `Getting tokenAbi from contract address: (${contractAddress}), tokenIds: ${rawTokenIds}`
+    `Getting tokenByIndex from contract address: (${contractAddress}), tokenIds: ${rawTokenIds}`
   );
   const multicallHelper = getMulticallHelper(chain, network);
 
@@ -18,7 +18,7 @@ export const tokenURIs = async (
     tokenIds.map((tokenId) => ({
       contractAddress,
       abi: ERC_721_ENUMERABLE,
-      method: "tokenURI",
+      method: "tokenByIndex",
       callArgs: tokenId.toString(),
     }))
   );
@@ -26,5 +26,8 @@ export const tokenURIs = async (
     num.toString(),
     decodedResult[index][0],
   ]);
-  outputCsvFile("tokenURIs.csv", formattedResult, ["tokenId", "tokenUrl"]);
+  outputCsvFile("tokenByIndex.csv", formattedResult, [
+    "tokenId",
+    "tokenByIndex",
+  ]);
 };

@@ -3,7 +3,7 @@ import { Command, Option } from "commander";
 import { getStandarizedOption } from "@util/parsing";
 import { registerCommand } from "@util/commander";
 import { ICommandProps } from "@types";
-import { tokenURIs } from "@logic";
+import { tokenURIs, tokenByIndex } from "@logic";
 
 // import { getWeb3 } from "@/src/utils/web3";
 
@@ -46,9 +46,6 @@ const commandPropsSet: ICommandProps[] = [
     action: (...args) => {
       const opt = getStandarizedOption(args[2]);
       tokenURIs(args[0], args[1], opt);
-      // console.log(str);
-      // const standardOpts = getStandarizedOption(options);
-      // console.log(standardOpts);
     },
   },
   {
@@ -60,11 +57,8 @@ const commandPropsSet: ICommandProps[] = [
     ],
     opts: chainOpts,
     action: (...args) => {
-      console.log(args);
-      // const standardOpts = getStandarizedOption(options);
-      // console.log(str);
-      // console.log(options);
-      // console.log(standardOpts);
+      const opt = getStandarizedOption(args[2]);
+      tokenByIndex(args[0], args[1], opt);
     },
   },
 ];

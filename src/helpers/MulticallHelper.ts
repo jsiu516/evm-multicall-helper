@@ -1,9 +1,10 @@
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 import { Contract } from "web3-eth-contract";
-import { getMulticallContractAddressStr, getNodeUrlStr } from "@util/parsing";
+import { getMulticallContractAddressStr } from "@util/parsing";
 import { MULTICALL } from "@abi";
 import { chain, toArray } from "lodash";
+import { getWeb3 } from "@helper/web3";
 
 export interface IRawCallDataProps {
   contractAddress: string;
@@ -26,8 +27,8 @@ export interface ICallPropsMapping {
 export default class MulticallHelper {
   protected web3: Web3;
   protected contract: Contract;
-  constructor(protected nodeUrl: string, public multicallAddr: string) {
-    this.web3 = new Web3(nodeUrl);
+  constructor(chain: string, network: string, public multicallAddr: string) {
+    this.web3 = getWeb3(chain, network);
     this.contract = new this.web3.eth.Contract(MULTICALL, multicallAddr);
   }
   public async aggregateCalls(propSets: ICallProps[]): Promise<string[][]> {
@@ -97,8 +98,7 @@ export const getMulticallHelper = (
   chain: string,
   network: string
 ): MulticallHelper => {
-  const nodeUrl = process.env[getNodeUrlStr(chain, network)];
   const contractAddr =
     process.env[getMulticallContractAddressStr(chain, network)];
-  return new MulticallHelper(nodeUrl, contractAddr);
+  return new MulticallHelper(chain, network, contractAddr);
 };
