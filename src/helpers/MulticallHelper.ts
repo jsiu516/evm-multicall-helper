@@ -66,9 +66,17 @@ export default class MulticallHelper {
   public async aggregateRawCallData(
     propSets: IRawCallDataProps[]
   ): Promise<string[]> {
-    const params = this.constructCallParameters(propSets);
-    const result = await this.contract.methods["aggregate"](params).call();
-    return result.returnData;
+    try {
+      const params = this.constructCallParameters(propSets);
+      const result = await this.contract.methods["aggregate"](params).call();
+      return result.returnData;
+    } catch (err) {
+      if ((err as Error).message.includes("execution reverted")) {
+        throw new Error(
+          "Execution reverted. Check if the method is supported. (use interface Id)"
+        );
+      }
+    }
   }
   protected constructCallParameters(propSets: IRawCallDataProps[]): string[][] {
     return propSets.map((props) => [props.contractAddress, props.callData]);

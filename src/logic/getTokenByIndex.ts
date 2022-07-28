@@ -2,7 +2,7 @@ import { ERC_721_ENUMERABLE } from "@abi";
 import { getMulticallHelper } from "@helper/MulticallHelper";
 import { parseNumericalStr, outputCsvFile } from "@util/parsing";
 
-export const tokenByIndex = async (
+export const getTokenByIndex = async (
   contractAddress: string,
   rawTokenIds: string,
   opt: Record<string, string>

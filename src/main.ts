@@ -3,7 +3,7 @@ import { Command, Option } from "commander";
 import { getStandarizedOption } from "@util/parsing";
 import { registerCommand } from "@util/commander";
 import { ICommandProps } from "@types";
-import { tokenURIs, tokenByIndex } from "@logic";
+import { getTokenURIs, getTokenByIndex, getSupportedStandard } from "@logic";
 
 // import { getWeb3 } from "@/src/utils/web3";
 
@@ -24,17 +24,16 @@ const chainOpts: Option[] = [
 ];
 
 const commandPropsSet: ICommandProps[] = [
-  // {
-  //   name: "interfaceId",
-  //   desc: "Check the interface Id given contract address",
-  //   args: [["<contractAddress>", "Contract Address"]],
-  //   opts: defaultOpts,
-  //   action: (str, options) => {
-  //     console.log(str);
-  //     console.log(options);
-  //     console.log(getStandarizedOption(options));
-  //   },
-  // },
+  {
+    name: "supportInterface",
+    desc: "Check the support interface contract address",
+    args: [["<contractAddress>", "Contract Address"]],
+    opts: chainOpts,
+    action: (args) => {
+      const opt = getStandarizedOption(args[1]);
+      getSupportedStandard(args[0], opt);
+    },
+  },
   {
     name: "tokenUrls",
     desc: "Query the metadata url given contract address and token Id set",
@@ -43,9 +42,9 @@ const commandPropsSet: ICommandProps[] = [
       ["<numerical set>", "Numerical set (Example: 10-15,18)"],
     ],
     opts: chainOpts,
-    action: (...args) => {
+    action: (args) => {
       const opt = getStandarizedOption(args[2]);
-      tokenURIs(args[0], args[1], opt);
+      getTokenURIs(args[0], args[1], opt);
     },
   },
   {
@@ -56,9 +55,9 @@ const commandPropsSet: ICommandProps[] = [
       ["<numerical set>", "Numerical set (Example: 10-15,18)"],
     ],
     opts: chainOpts,
-    action: (...args) => {
+    action: (args) => {
       const opt = getStandarizedOption(args[2]);
-      tokenByIndex(args[0], args[1], opt);
+      getTokenByIndex(args[0], args[1], opt);
     },
   },
 ];

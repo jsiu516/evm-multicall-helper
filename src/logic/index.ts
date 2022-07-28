@@ -1,2 +1,3 @@
-export { tokenURIs } from "./tokenAbiUrls";
-export { tokenByIndex } from "./tokenByIndex";
+export { getTokenURIs } from "./getTokenURIs";
+export { getTokenByIndex } from "./getTokenByIndex";
+export { getSupportedStandard } from "./getSupportedStandard";

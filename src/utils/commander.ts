@@ -10,5 +10,13 @@ export const registerCommand = (program: Command, props: ICommandProps) => {
   opts.forEach((opt) => {
     command.addOption(opt);
   });
-  command.action(action);
+  command.action(
+    (...args) => {
+      try {
+        action(args);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  );
 };
